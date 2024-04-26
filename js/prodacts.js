@@ -88,19 +88,20 @@ modalBox.addEventListener("click", ()=>{
     login.style.display="none"
 })
 
+
+function checkAdmin() {
+    let isLogin = localStorage.getItem("x-auth-token")
+    if (isLogin) {
+        headerLoginLink.innerHTML = `<img src="./assets/image/Logout.svg" alt="login btn" /> Admin`
+        headerLoginLink.setAttribute("href", "./pages/admin.html")
+    }else{
+        headerLoginLink.innerHTML = `<img src="./assets/image/Logout.svg" alt="login btn" /> Login`
+    }
+}
+checkAdmin()
+
 headerLoginLink.addEventListener("click", ()=>{
     modalBox.style.display="block"
     login.style.display="block"
 })
 
-
-function checkAdmin() {
-    let isLogin = localStorage.getItem("x-auth-token")
-    if (isLogin) {
-        headerLoginLink.innerHTML = "Admin"
-        headerLoginLink.setAttribute("href", "./pages/admin.html")
-    }else{
-        headerLoginLink.innerHTML = "Login"
-    }
-}
-checkAdmin()
